@@ -18,7 +18,7 @@ const MapComponent: React.FC = () => {
   const [filter, setFilter] = useState<string>("all");
 
   const [selectedDelivery, setSelectedDelivery] = useState<IDelivery | null>(
-    null
+    null,
   );
 
   const handleOrderClick = (delivery: IDelivery) => {
@@ -62,17 +62,17 @@ const MapComponent: React.FC = () => {
               onClick={() => handleOrderClick(delivery)}
             >
               <div
-                className="relative text-white p-4 rounded-lg"
+                className="relative rounded-lg p-4 text-white"
                 style={{ backgroundColor: bgColor }}
               >
                 {assignmentInfo && (
-                  <div className="absolute -top-8 left-1/2 transform -translate-x-1/2">
+                  <div className="absolute -top-8 left-1/2 -translate-x-1/2 transform">
                     <Avatar url={assignmentInfo.driver.avatar} />
                   </div>
                 )}
                 <p>{delivery.title}</p>
                 <div
-                  className="absolute left-1/2 transform -translate-x-1/2 -bottom-2 w-0 h-0 border-l-8 border-l-transparent border-r-8 border-r-transparent border-t-8"
+                  className="absolute -bottom-2 left-1/2 h-0 w-0 -translate-x-1/2 transform border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent"
                   style={{ borderTopColor: bgColor }}
                 ></div>
               </div>

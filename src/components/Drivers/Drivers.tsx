@@ -23,7 +23,7 @@ function Drivers() {
     <>
       {!isVisible && (
         <div
-          className="fixed top-[12%] right-10   px-4 py-2   bg-slate-900 p-5 opacity-80 rounded-md shadow-2xl shadow-black text-white cursor-pointer"
+          className="fixed right-10 top-[12%] cursor-pointer rounded-md bg-slate-900 p-5 px-4 py-2 text-white opacity-80 shadow-2xl shadow-black"
           onClick={toggleVisibility}
         >
           <span>Mostrar choferes</span>
@@ -32,10 +32,10 @@ function Drivers() {
       <div
         className={`${
           isVisible ? "block" : "hidden"
-        } absolute top-[10%] left-1/2 transform -translate-x-1/2  lg:left-auto lg:transform-none lg:right-10 lg:w-1/4 h-3/4 w-[90%] bg-slate-900 p-5 opacity-80 rounded-md shadow-2xl shadow-black text-white`}
+        } absolute left-1/2 top-[10%] h-3/4 w-[90%] -translate-x-1/2 transform rounded-md bg-slate-900 p-5 text-white opacity-80 shadow-2xl shadow-black lg:left-auto lg:right-10 lg:w-1/4 lg:transform-none`}
       >
         <div className="flex justify-between">
-          <h1 className="text-xl font-bold mb-4">Choferes</h1>
+          <h1 className="mb-4 text-xl font-bold">Choferes</h1>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -57,7 +57,7 @@ function Drivers() {
           <ul>
             {drivers.map((driver: IDriver, index: number) => {
               const assignmentsDriver = assignments.filter(
-                (x) => x.driver.id === driver.id
+                (x) => x.driver.id === driver.id,
               );
 
               return (
@@ -81,7 +81,7 @@ function Drivers() {
                     </div>
                     {assignmentsDriver && assignmentsDriver.length > 0 && (
                       <button
-                        className="ml-4 bg-blue-500 text-white px-2 py-1 rounded"
+                        className="ml-4 rounded bg-blue-500 px-2 py-1 text-white"
                         onClick={() => toggleAccordion(driver.id)}
                       >
                         <svg
@@ -102,8 +102,8 @@ function Drivers() {
                     )}
                   </div>
                   {expandedDriverId === driver.id && (
-                    <div className="mt-4 bg-gray-800 p-3 rounded-md">
-                      <h2 className="font-bold mb-2">Pedidos Asignados:</h2>
+                    <div className="mt-4 rounded-md bg-gray-800 p-3">
+                      <h2 className="mb-2 font-bold">Pedidos Asignados:</h2>
                       <ul>
                         {assignmentsDriver?.map((assignment, index) => (
                           <li key={index}>{assignment.delivery.title}</li>

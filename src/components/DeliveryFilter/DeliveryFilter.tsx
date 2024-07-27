@@ -10,7 +10,7 @@ const DeliveryFilter: React.FC<DeliveryFilterProps> = ({
   setFilter,
 }) => {
   return (
-    <div className="w-[90%] left-1/2 transform -translate-x-1/2 lg:w-auto absolute bottom-10 bg-slate-900 p-4 opacity-80 rounded-md shadow-2xl shadow-black text-white flex justify-center gap-3">
+    <div className="absolute bottom-10 left-1/2 flex w-[90%] -translate-x-1/2 transform justify-center gap-3 rounded-md bg-slate-900 p-4 text-white opacity-80 shadow-2xl shadow-black lg:w-auto">
       <div>
         <svg
           xmlns="http://www.w3.org/2000/svg"
