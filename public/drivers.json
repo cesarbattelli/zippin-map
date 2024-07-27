@@ -4,7 +4,7 @@
       "firstName": "Juan",
       "lastName": "Pérez",
       "reputation": 4,
-      "avatar": "https://api.dicebear.com/9.x/pixel-art/svg?seed=JuanP&backgroundColor=ff0000",
+      "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=JuanP&backgroundColor=ff0000",
       "color": "ff0000"
     },
     {
@@ -12,7 +12,7 @@
       "firstName": "María",
       "lastName": "García",
       "reputation": 5,
-      "avatar": "https://api.dicebear.com/9.x/pixel-art/svg?seed=MariaG&backgroundColor=0a75ad",
+      "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=MariaG&backgroundColor=0a75ad",
       "color": "0a75ad"
     },
     {
@@ -20,7 +20,7 @@
       "firstName": "Carlos",
       "lastName": "Sánchez",
       "reputation": 3,
-      "avatar": "https://api.dicebear.com/9.x/pixel-art/svg?seed=CarlosS&backgroundColor=800000",
+      "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=CarlosS&backgroundColor=800000",
       "color": "800000"
     },
     {
@@ -28,7 +28,7 @@
       "firstName": "Ana",
       "lastName": "Martínez",
       "reputation": 4,
-      "avatar": "https://api.dicebear.com/9.x/pixel-art/svg?seed=AnaM&backgroundColor=065535",
+      "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=AM&backgroundColor=065535",
       "color": "065535"
     },
     {
@@ -36,7 +36,7 @@
       "firstName": "Luis",
       "lastName": "Rodríguez",
       "reputation": 2,
-      "avatar": "https://api.dicebear.com/9.x/pixel-art/svg?seed=LuisR&backgroundColor=8a2be2",
+      "avatar": "https://api.dicebear.com/9.x/personas/svg?seed=LuisR&backgroundColor=8a2be2",
       "color": "8a2be2"
     }
   ]

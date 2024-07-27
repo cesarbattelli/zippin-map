@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AdvancedMarker, APIProvider, Map } from "@vis.gl/react-google-maps";
 import { IDelivery } from "../../interfaces/common";
 import useDataStore from "../../stores/data.store";
@@ -14,12 +14,14 @@ const MapComponent: React.FC = () => {
     lng: -64.997999,
   };
   const deliveries = useDataStore((state) => state.deliveries);
+  const assignments = useAssignmentStore((state) => state.assignments); // Obtener el estado de assignments
   const isAssigned = useAssignmentStore((state) => state.isAssigned);
   const [filter, setFilter] = useState<string>("all");
 
   const [selectedDelivery, setSelectedDelivery] = useState<IDelivery | null>(
     null,
   );
+  const [filteredDeliveries, setFilteredDeliveries] = useState<IDelivery[]>([]);
 
   const handleOrderClick = (delivery: IDelivery) => {
     setSelectedDelivery(delivery);
@@ -29,13 +31,16 @@ const MapComponent: React.FC = () => {
     setSelectedDelivery(null);
   };
 
-  const filteredDeliveries = deliveries.filter((delivery) => {
-    const assignmentInfo = isAssigned(delivery.id);
-    if (filter === "all") return true;
-    if (filter === "pending" && !assignmentInfo) return true;
-    if (filter === "assigned" && assignmentInfo) return true;
-    return false;
-  });
+  useEffect(() => {
+    const updatedFilteredDeliveries = deliveries.filter((delivery) => {
+      const assignmentInfo = isAssigned(delivery.id);
+      if (filter === "all") return true;
+      if (filter === "pending" && !assignmentInfo) return true;
+      if (filter === "assigned" && assignmentInfo) return true;
+      return false;
+    });
+    setFilteredDeliveries(updatedFilteredDeliveries);
+  }, [deliveries, filter, assignments, isAssigned]); // Agregar assignments a las dependencias
 
   return (
     <APIProvider apiKey={GOOGLE_MAPS_API_KEY}>
@@ -66,11 +71,11 @@ const MapComponent: React.FC = () => {
                 style={{ backgroundColor: bgColor }}
               >
                 {assignmentInfo && (
-                  <div className="absolute -top-8 left-1/2 -translate-x-1/2 transform">
+                  <div className="absolute -top-12 left-1/2 -translate-x-1/2 transform p-1">
                     <Avatar url={assignmentInfo.driver.avatar} />
                   </div>
                 )}
-                <p>{delivery.title}</p>
+                <p className="text-sm">{delivery.title}</p>
                 <div
                   className="absolute -bottom-2 left-1/2 h-0 w-0 -translate-x-1/2 transform border-l-8 border-r-8 border-t-8 border-l-transparent border-r-transparent"
                   style={{ borderTopColor: bgColor }}

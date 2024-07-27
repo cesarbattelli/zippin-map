@@ -1,12 +1,14 @@
 import { create, StateCreator } from "zustand";
 import { IAssignment, IDelivery, IDriver } from "../interfaces/common";
 import { persist } from "zustand/middleware";
+import { v4 as uuidv4 } from "uuid";
 
 export interface AssignmentsState {
   assignments: IAssignment[];
   setAssignment: (delivery: IDelivery, driver: IDriver) => void;
   isAssigned: (deliveryId: number) => IAssignment | undefined;
   getDriverAssignments: (driverId: number) => IAssignment[];
+  deleteAssignment: (assignmentId: string) => void;
 }
 
 const assignmentsStore: StateCreator<AssignmentsState> = (set) => ({
@@ -25,7 +27,7 @@ const assignmentsStore: StateCreator<AssignmentsState> = (set) => ({
       });
 
       const isAlreadyAssigned = state.assignments.some(
-        (assignment) => assignment.delivery.id === delivery.id
+        (assignment) => assignment.delivery.id === delivery.id,
       );
 
       if (isAlreadyAssigned) {
@@ -38,6 +40,7 @@ const assignmentsStore: StateCreator<AssignmentsState> = (set) => ({
         assignments: [
           ...state.assignments,
           {
+            id: uuidv4(),
             delivery: delivery,
             driver: driver,
             assignedAt: new Date(),
@@ -47,7 +50,6 @@ const assignmentsStore: StateCreator<AssignmentsState> = (set) => ({
     });
   },
   isAssigned: (deliveryId) => {
-    console.log("🚀 ~ file: assignments.store.ts:50 ~ deliveryId:", deliveryId);
     return useAssignmentStore
       .getState()
       .assignments.find((assignment) => assignment.delivery.id === deliveryId);
@@ -57,8 +59,15 @@ const assignmentsStore: StateCreator<AssignmentsState> = (set) => ({
       .getState()
       .assignments.filter((assignment) => assignment.driver.id === driverId);
   },
+  deleteAssignment: (assignmentId) => {
+    set((state) => ({
+      assignments: state.assignments.filter(
+        (assignment) => assignment.id !== assignmentId,
+      ),
+    }));
+  },
 });
 
 export const useAssignmentStore = create<AssignmentsState>()(
-  persist(assignmentsStore, { name: "assignments-storage" })
+  persist(assignmentsStore, { name: "assignments-storage" }),
 );

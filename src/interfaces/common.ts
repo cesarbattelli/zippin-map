@@ -17,6 +17,7 @@ export interface IDelivery {
 }
 
 export interface IAssignment {
+  id: string;
   delivery: IDelivery;
   driver: IDriver;
   assignedAt: Date;

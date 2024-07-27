@@ -1,6 +1,6 @@
 import "./App.css";
 import MapComponent from "./components/Map/Map";
-import Drivers from "./components/Drivers/Drivers";
+import Drivers from "./components/DriverList/DriverList";
 import useDataStore from "./stores/data.store";
 import { useEffect } from "react";
 
