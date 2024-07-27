@@ -1,0 +1,43 @@
+[
+    {
+      "id": 1,
+      "firstName": "Juan",
+      "lastName": "Pérez",
+      "reputation": 4,
+      "avatar": "https://api.dicebear.com/9.x/pixel-art/svg?seed=JuanP&backgroundColor=ff0000",
+      "color": "ff0000"
+    },
+    {
+      "id": 2,
+      "firstName": "María",
+      "lastName": "García",
+      "reputation": 5,
+      "avatar": "https://api.dicebear.com/9.x/pixel-art/svg?seed=MariaG&backgroundColor=0a75ad",
+      "color": "0a75ad"
+    },
+    {
+      "id": 3,
+      "firstName": "Carlos",
+      "lastName": "Sánchez",
+      "reputation": 3,
+      "avatar": "https://api.dicebear.com/9.x/pixel-art/svg?seed=CarlosS&backgroundColor=800000",
+      "color": "800000"
+    },
+    {
+      "id": 4,
+      "firstName": "Ana",
+      "lastName": "Martínez",
+      "reputation": 4,
+      "avatar": "https://api.dicebear.com/9.x/pixel-art/svg?seed=AnaM&backgroundColor=065535",
+      "color": "065535"
+    },
+    {
+      "id": 5,
+      "firstName": "Luis",
+      "lastName": "Rodríguez",
+      "reputation": 2,
+      "avatar": "https://api.dicebear.com/9.x/pixel-art/svg?seed=LuisR&backgroundColor=8a2be2",
+      "color": "8a2be2"
+    }
+  ]
+  
