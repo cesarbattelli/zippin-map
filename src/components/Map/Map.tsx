@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { AdvancedMarker, APIProvider, Map } from "@vis.gl/react-google-maps";
+import { AdvancedMarker, Map } from "@vis.gl/react-google-maps";
 import { IDelivery } from "../../interfaces/common";
 import useDataStore from "../../stores/data.store";
 import AssignmentModal from "../AssignmentModal/AssignmentModal";
@@ -8,13 +8,12 @@ import Avatar from "../Avatar/Avatar";
 import DeliveryFilter from "../DeliveryFilter/DeliveryFilter";
 
 const MapComponent: React.FC = () => {
-  const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY;
   const DEFAULT_CENTER: google.maps.LatLngLiteral = {
     lat: -32.349718,
     lng: -64.997999,
   };
   const deliveries = useDataStore((state) => state.deliveries);
-  const assignments = useAssignmentStore((state) => state.assignments); // Obtener el estado de assignments
+  const assignments = useAssignmentStore((state) => state.assignments);
   const isAssigned = useAssignmentStore((state) => state.isAssigned);
   const [filter, setFilter] = useState<string>("all");
 
@@ -40,10 +39,10 @@ const MapComponent: React.FC = () => {
       return false;
     });
     setFilteredDeliveries(updatedFilteredDeliveries);
-  }, [deliveries, filter, assignments, isAssigned]); // Agregar assignments a las dependencias
+  }, [deliveries, filter, assignments, isAssigned]);
 
   return (
-    <APIProvider apiKey={GOOGLE_MAPS_API_KEY}>
+    <>
       <Map
         style={{ width: "100vw", height: "100vh" }}
         defaultCenter={DEFAULT_CENTER}
@@ -91,7 +90,7 @@ const MapComponent: React.FC = () => {
       )}
 
       <DeliveryFilter filter={filter} setFilter={setFilter} />
-    </APIProvider>
+    </>
   );
 };
 

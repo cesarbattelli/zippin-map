@@ -27,7 +27,7 @@ const DeliveryFilter: React.FC<DeliveryFilterProps> = ({
           />
         </svg>
       </div>
-      <div className="flex gap-3 text-nowrap">
+      <div className="flex gap-3 text-nowrap text-sm lg:text-base">
         <button
           onClick={() => setFilter("all")}
           className={filter === "all" ? "border-b-2" : ""}

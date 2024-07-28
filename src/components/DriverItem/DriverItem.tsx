@@ -7,6 +7,7 @@ interface DriverItemProps {
   expandedDriverId: number | null;
   toggleAccordion: (driverId: number) => void;
   onDeleteAssignment: (assignmentId: string) => void;
+  onViewLocation: (assignmentsDriver: IAssignment) => void;
 }
 
 const DriverItem: React.FC<DriverItemProps> = ({
@@ -15,6 +16,7 @@ const DriverItem: React.FC<DriverItemProps> = ({
   expandedDriverId,
   toggleAccordion,
   onDeleteAssignment,
+  onViewLocation,
 }) => {
   return (
     <li key={driver.id} className="mb-4">
@@ -43,13 +45,13 @@ const DriverItem: React.FC<DriverItemProps> = ({
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
+                strokeWidth="1.5"
                 stroke="currentColor"
                 className="size-6 cursor-pointer"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   d="m4.5 15.75 7.5-7.5 7.5 7.5"
                 />
               </svg>
@@ -58,13 +60,13 @@ const DriverItem: React.FC<DriverItemProps> = ({
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
+                strokeWidth="1.5"
                 stroke="currentColor"
                 className="size-6 cursor-pointer"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   d="m19.5 8.25-7.5 7.5-7.5-7.5"
                 />
               </svg>
@@ -80,20 +82,41 @@ const DriverItem: React.FC<DriverItemProps> = ({
             <ul>
               {assignmentsDriver?.map((assignment, index) => (
                 <li key={index}>
-                  <div className="flex items-center">
+                  <div className="mb-1 flex items-center">
                     <span>- {assignment.delivery.title}</span>
+                    <button onClick={() => onViewLocation(assignment)}>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="1.5"
+                        stroke="#11d4d74d"
+                        className="size-6 cursor-pointer"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+                        />
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
+                        />
+                      </svg>
+                    </button>
                     <button onClick={() => onDeleteAssignment(assignment.id)}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
-                        stroke-width="1.5"
+                        strokeWidth="1.5"
                         stroke="red"
                         className="size-6"
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                           d="M6 18 18 6M6 6l12 12"
                         />
                       </svg>
