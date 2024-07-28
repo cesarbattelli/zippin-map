@@ -6,8 +6,8 @@ Zippin - Map es una aplicación que muestra un mapa interactivo con marcadores a
 
 ## Capturas de Pantalla
 
-![Captura de Pantalla 1](link-a-la-captura-1.png)
-![Captura de Pantalla 2](link-a-la-captura-2.png)
+<img width="1437" alt="zippin-map-desktop" src="https://github.com/user-attachments/assets/9b6babc5-06f2-4472-b48a-22167c7b7d2e">
+<img width="334" alt="zippin-map-responsive" src="https://github.com/user-attachments/assets/ef4af4d7-3040-43c4-9311-67caea1f42af">
 
 ## Tecnologías Utilizadas
 
