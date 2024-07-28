@@ -34,8 +34,6 @@ const AssignmentModal: React.FC<IAssignmentModalProps> = ({
         setAssignment(delivery, driver);
       }
       onClose();
-    } else {
-      alert("Por favor, selecciona un chofer.");
     }
   };
 
@@ -79,6 +77,7 @@ const AssignmentModal: React.FC<IAssignmentModalProps> = ({
           <button
             className="rounded bg-blue-500 px-4 py-2 text-white"
             onClick={handleAssign}
+            disabled={!selectedDriverId}
           >
             Asignar
           </button>

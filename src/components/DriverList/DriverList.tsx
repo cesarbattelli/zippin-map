@@ -40,16 +40,16 @@ function DriverList() {
     <>
       {!isVisible && (
         <div
-          className="fixed right-5 top-5 cursor-pointer rounded-md bg-slate-900 p-5 px-4 py-2 text-white opacity-80 shadow-2xl shadow-black"
+          className="fixed right-5 top-5 cursor-pointer rounded-md bg-slate-900 p-5 px-4 py-2 text-white opacity-90 shadow-2xl shadow-black"
           onClick={toggleVisibility}
         >
           <span>Mostrar choferes</span>
         </div>
       )}
       <div
-        className={`${
+        className={`no-scrollbar ${
           isVisible ? "block" : "hidden"
-        } absolute left-1/2 top-5 w-[90%] -translate-x-1/2 transform rounded-md bg-slate-900 p-5 text-white opacity-80 shadow-2xl shadow-black lg:left-auto lg:right-5 lg:w-1/4 lg:transform-none`}
+        } absolute left-1/2 top-5 max-h-[84%] w-[90%] -translate-x-1/2 transform overflow-y-auto rounded-md bg-slate-900 p-5 text-white opacity-90 shadow-2xl shadow-black lg:left-auto lg:right-5 lg:w-1/4 lg:transform-none`}
       >
         <div className="flex justify-between">
           <h1 className="mb-4 text-xl font-bold">Choferes</h1>
