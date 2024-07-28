@@ -33,6 +33,7 @@ function DriverList() {
       lat: assignment.delivery.lat,
       lng: assignment.delivery.lng,
     });
+    map?.setZoom(15);
   };
 
   return (
